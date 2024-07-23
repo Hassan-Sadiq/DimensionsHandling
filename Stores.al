@@ -67,14 +67,4 @@ table 50508 "Stores"
             Clustered = true;
         }
     }
-
-    trigger OnDelete()
-    var
-        deletedItemsLog: Record "Deletions Log";
-    begin
-        deletedItemsLog.Init();
-        deletedItemsLog."Record ID" := Rec.SystemId;
-        deletedItemsLog."Table Name" := 'Stores';
-        deletedItemsLog.Insert();
-    end;
 }
